@@ -78,6 +78,12 @@ header {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.function {
+  text-align: right;
+  margin: -15px 4px 15px 0;
+  font-size: 14px;
+}
+
 @media screen and (max-width: 992px) {
   
   .card img{

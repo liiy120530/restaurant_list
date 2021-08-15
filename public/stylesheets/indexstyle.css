@@ -80,8 +80,9 @@ header {
 
 .function {
   text-align: right;
-  margin: -15px 4px 15px 0;
+  margin: 2px 0px 0px;
   font-size: 14px;
+  background-color: #aaaaaa;
 }
 
 @media screen and (max-width: 992px) {

@@ -14,6 +14,7 @@ const Restaurant = require('./models/restaurant')
 
 //引用body-parser
 const bodyParser = require('body-parser')
+const restaurant = require('./models/restaurant')
 
 //設定連線至mongodb
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -112,6 +113,24 @@ app.post('/restaurants/:id/edit', (req, res) => {
     })
     .then(() => res.redirect(`/restaurants/${id}`))
     .catch(error => console.log(error))
+})
+
+app.post('/restaurants/:id/delete', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .then(restaurant => restaurant.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword.trim().toLowerCase()
+  const keywordRegex = new RegExp(keyword, 'i')
+  Restaurant.find({ $or: [{ category: { $regex: keywordRegex } }, { name: { $regex: keywordRegex } }] })
+    .lean()
+    .then(restaurants => {
+      res.render('index', { restaurants, keyword })
+    })
 })
 
 // start and listen on the Express server

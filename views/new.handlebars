@@ -1,39 +1,45 @@
-<form action="/restaurants" method="POST">
-  <div class="form-group">
-    <label for="restaurantname">餐廳名稱</label>
-    <input type="text" placeholder="name" name="name">
+<div class="container" style="margin-top: 2rem; text-align:center">
+  <h2>新增餐廳資料</h2>
+  <div style="margin-top: 2rem; text-align:center">
+    <form action="/restaurants" method="POST">
+      <div class="form-group">
+        <label for="restaurantname">餐廳名稱</label>
+        <input type="text" placeholder="name" name="name">
+      </div>
+      <div class="form-group">
+        <label for="restaurantname_en">餐廳英文名稱</label>
+        <input type="text" placeholder="name_en" name="name_en">
+      </div>
+      <div class="form-group">
+        <label for="restaurantcategory">餐廳類別</label>
+        <input type="text" placeholder="category" name="category">
+      </div>
+      <div class="form-group">
+        <label for="restaurantimage">餐廳照片</label>
+        <input type="text" placeholder="image" name="image">
+      </div>
+      <div class="form-group">
+        <label for="restaurantlocation">餐廳地點</label>
+        <input type="text" placeholder="location" name="location">
+      </div>
+      <div class="form-group">
+        <label for="restaurantphone">餐廳電話</label>
+        <input type="text" placeholder="phone" name="phone">
+      </div>
+      <div class="form-group">
+        <label for="restaurantgoogle_map">餐廳地圖</label>
+        <input type="text" placeholder="google_map" name="google_map">
+      </div>
+      <div class="form-group">
+        <label for="restaurantrating">餐廳評分</label>
+        <input type="text" placeholder="rating" name="rating">
+      </div>
+      <div class="form-group">
+        <label for="restaurantdescription">餐廳敘述</label>
+        <input type="text" placeholder="description" name="description">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="restaurantname_en">餐廳英文名稱</label>
-    <input type="text" placeholder="name_en" name="name_en">
-  </div>
-  <div class="form-group">
-    <label for="restaurantcategory">餐廳類別</label>
-    <input type="text" placeholder="category" name="category">
-  </div>
-  <div class="form-group">
-    <label for="restaurantimage">餐廳照片</label>
-    <input type="text" placeholder="image" name="image">
-  </div>
-  <div class="form-group">
-    <label for="restaurantlocation">餐廳地點</label>
-    <input type="text" placeholder="location" name="location">
-  </div>
-  <div class="form-group">
-    <label for="restaurantphone">餐廳電話</label>
-    <input type="text" placeholder="phone" name="phone">
-  </div>
-  <div class="form-group">
-    <label for="restaurantgoogle_map">餐廳地圖</label>
-    <input type="text" placeholder="google_map" name="google_map">
-  </div>
-  <div class="form-group">
-    <label for="restaurantrating">餐廳評分</label>
-    <input type="text" placeholder="rating" name="rating">
-  </div>
-  <div class="form-group">
-    <label for="restaurantdescription">餐廳敘述</label>
-    <input type="text" placeholder="description" name="description">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+
+</div>

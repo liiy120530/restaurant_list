@@ -6,8 +6,7 @@ const restaurantSchema = new Schema({
     required: true
   },
   name_en: {
-    type: String,
-    required: true
+    type: String
   },
   category: {
     type: String,
@@ -18,19 +17,18 @@ const restaurantSchema = new Schema({
     required: true
   },
   location: {
-    type: String,
-    required: true
+    type: String
   },
   phone: {
-    type: String,
-    required: true
+    type: String
   },
   google_map: {
-    type: String,
-    required: true
+    type: String
   },
   rating: {
     type: Number,
+    min: 0,
+    max: 5,
     required: true
   },
   description: {

@@ -37,5 +37,13 @@
       <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt="{{restaurant.name}}"
         style="max-width: 600px;">
     </div>
+    <div class="container">
+      <div style="text-align:center">
+        <a href="/restaurants/{{restaurant._id}}/edit">Edit</a>
+        <form class="ml-5" action="/restaurants/{{restaurant._id}}/delete" method="POST" style="display: inline;">
+          <button type="submit" style="border-radius: 5px;" class="badge-danger">delete</button>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

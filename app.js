@@ -14,7 +14,7 @@ const Restaurant = require('./models/restaurant')
 
 //引用body-parser
 const bodyParser = require('body-parser')
-const restaurant = require('./models/restaurant')
+
 
 //設定連線至mongodb
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -55,7 +55,6 @@ app.get('/restaurants/new', (req, res) => {
   return res.render('new')
 })
 
-<<<<<<< HEAD
 
 app.post('/restaurants', (req, res) => {
   const name = req.body.name
@@ -70,14 +69,6 @@ app.post('/restaurants', (req, res) => {
   return Restaurant.create({ name, name_en, category, image, location, phone, google_map, rating, description })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
-=======
-app.get('/search', (req, res) => {
-  const keyword = req.query.keyword.toLowerCase()
-  const restaurants = restaurantList.results.filter(restaurant => {
-    return restaurant.name.toLowerCase().includes(keyword) || restaurant.category.includes(keyword)
-  })
-  res.render('index', { restaurants: restaurants, keyword: keyword })
->>>>>>> 293d49d6c49c795a2c13b15e02290a8090d0d073
 })
 
 app.get('/restaurants/:id', (req, res) => {
@@ -140,6 +131,7 @@ app.get('/search', (req, res) => {
     .then(restaurants => {
       res.render('index', { restaurants, keyword })
     })
+    .catch(error => console.log(error))
 })
 
 // start and listen on the Express server

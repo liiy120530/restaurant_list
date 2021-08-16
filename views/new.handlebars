@@ -3,40 +3,46 @@
   <div style="margin-top: 2rem; text-align:center">
     <form action="/restaurants" method="POST">
       <div class="form-group">
-        <label for="restaurantname">餐廳名稱</label>
-        <input type="text" placeholder="name" name="name">
+        <label for="name" class="text-danger">*</label>
+        <label for="name">餐廳名稱</label>
+        <input type="text" placeholder="Sababa 沙巴巴中東美食..." name="name" required>
       </div>
       <div class="form-group">
-        <label for="restaurantname_en">餐廳英文名稱</label>
-        <input type="text" placeholder="name_en" name="name_en">
+        <label for="name_en">餐廳英文名稱</label>
+        <input type="text" placeholder="Sababa..." name="name_en">
       </div>
       <div class="form-group">
-        <label for="restaurantcategory">餐廳類別</label>
-        <input type="text" placeholder="category" name="category">
+        <label for="category" class="text-danger">*</label>
+        <label for="category">餐廳類別</label>
+        <input type="text" placeholder="中東料理..." name="category" required>
       </div>
       <div class="form-group">
-        <label for="restaurantimage">餐廳照片</label>
-        <input type="text" placeholder="image" name="image">
+        <label for="image" class="text-danger">*</label>
+        <label for="image">餐廳照片</label>
+        <input type="text" placeholder="image" name="image" required>
       </div>
       <div class="form-group">
-        <label for="restaurantlocation">餐廳地點</label>
-        <input type="text" placeholder="location" name="location">
+        <label for="location">餐廳地點</label>
+        <input type="text" placeholder="台北市..." name="location">
       </div>
       <div class="form-group">
-        <label for="restaurantphone">餐廳電話</label>
-        <input type="text" placeholder="phone" name="phone">
+        <label for="phone">餐廳電話</label>
+        <input type="text" placeholder="02 123 4567..." name="phone">
       </div>
       <div class="form-group">
-        <label for="restaurantgoogle_map">餐廳地圖</label>
+        <label for="google_map">餐廳地圖</label>
         <input type="text" placeholder="google_map" name="google_map">
       </div>
       <div class="form-group">
-        <label for="restaurantrating">餐廳評分</label>
-        <input type="number" placeholder="rating" name="rating">
+        <label for="rating" class="text-danger">*</label>
+        <label for="rating">餐廳評分</label>
+        <input type="number" placeholder="4.3" name="rating" min="0" max="5" step="0.1" required>
       </div>
       <div class="form-group">
-        <label for="restaurantdescription">餐廳敘述</label>
-        <input type="text" placeholder="description" name="description">
+        <label for="description" class="text-danger">*</label>
+        <label for="description">餐廳敘述</label>
+        <textarea name="description" id="description" class="form-control form-control-lg" rows="5"
+          placeholder="沙巴巴批塔是台灣第一家純手工批塔..." required></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

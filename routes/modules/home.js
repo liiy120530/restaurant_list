@@ -1,0 +1,16 @@
+const express = require('express')
+const router = express.Router()
+
+// 引用Restaurant模組
+const Restaurant = require('../../models/restaurant')
+
+// 定義首頁路由
+router.get('/', (req, res) => {
+  Restaurant.find()
+    .lean()
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.error(error))
+})
+
+// 匯出路由器
+module.exports = router

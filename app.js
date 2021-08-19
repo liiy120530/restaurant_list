@@ -38,19 +38,6 @@ app.use(methodOverride('_method'))
 //將request導入路由器
 app.use(routes)
 
-
-
-app.get('/search', (req, res) => {
-  const keyword = req.query.keyword.trim().toLowerCase()
-  const keywordRegex = new RegExp(keyword, 'i')
-  Restaurant.find({ $or: [{ category: { $regex: keywordRegex } }, { name: { $regex: keywordRegex } }] })
-    .lean()
-    .then(restaurants => {
-      res.render('index', { restaurants, keyword })
-    })
-    .catch(error => console.log(error))
-})
-
 // start and listen on the Express server
 app.listen(port, () => {
   console.log(`Express is listening on localhost:${port}`)

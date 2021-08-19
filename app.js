@@ -6,9 +6,6 @@ const port = 3000
 //建立express-handlebars
 const exphbs = require('express-handlebars')
 
-//載入mongoose
-const mongoose = require('mongoose')
-
 //引用body-parser
 const bodyParser = require('body-parser')
 
@@ -21,19 +18,8 @@ const Restaurant = require('./models/restaurant')
 //引用路由器
 const routes = require('./routes')
 
-//設定連線至mongodb
-mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
-
-//取得連線狀態
-const db = mongoose.connection
-//連線異常
-db.on('error', () => {
-  console.log('mongodb error!')
-})
-//連線成功
-db.once('open', () => {
-  console.log('mongodb connected!')
-})
+//引用mongoose
+require('./config/mongoose')
 
 
 //設定樣板引擎
@@ -51,6 +37,8 @@ app.use(methodOverride('_method'))
 
 //將request導入路由器
 app.use(routes)
+
+
 
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword.trim().toLowerCase()

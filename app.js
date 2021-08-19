@@ -15,6 +15,8 @@ const Restaurant = require('./models/restaurant')
 //引用body-parser
 const bodyParser = require('body-parser')
 
+//載入method-override
+const methodOverride = require('method-override')
 
 //設定連線至mongodb
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -41,7 +43,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 //設定靜態檔案
 app.use(express.static('public'))
 
-
+//設定每筆請求都會透過 methodOverride 進行前置處理
+app.use(methodOverride('_method'))
 
 //route setting
 app.get('/', (req, res) => {
@@ -79,6 +82,7 @@ app.get('/restaurants/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+
 app.get('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
@@ -86,8 +90,8 @@ app.get('/restaurants/:id/edit', (req, res) => {
     .then((restaurant) => res.render('edit', { restaurant }))
     .catch(error => console.log(error))
 })
-
-app.post('/restaurants/:id/edit', (req, res) => {
+//修改餐廳資料
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   const name = req.body.name
   const name_en = req.body.name_en
@@ -115,7 +119,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => restaurant.remove())

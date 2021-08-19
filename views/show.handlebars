@@ -40,7 +40,8 @@
     <div class="container">
       <div style="text-align:center">
         <a href="/restaurants/{{restaurant._id}}/edit">Edit</a>
-        <form class="ml-5" action="/restaurants/{{restaurant._id}}/delete" method="POST" style="display: inline;">
+        <form class="ml-5" action="/restaurants/{{restaurant._id}}?_method=DELETE" method="POST"
+          style="display: inline;">
           <button type="submit" style="border-radius: 5px;" class="badge-danger">delete</button>
         </form>
       </div>

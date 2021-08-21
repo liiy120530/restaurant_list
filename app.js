@@ -12,9 +12,6 @@ const bodyParser = require('body-parser')
 //載入method-override
 const methodOverride = require('method-override')
 
-//載入restaurant
-const Restaurant = require('./models/restaurant')
-
 //引用路由器
 const routes = require('./routes')
 

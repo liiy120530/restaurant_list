@@ -10,9 +10,10 @@
  * User can click the restaurant photo to get the information (address, phone number...)
  * There're 4 function (Create, Edit, Detail, Delete) add in the front page of the website.
  * User can click the Create button (+) to create the new restaurant list.
- * User cna click the Edit button to edit the restaurant informaion.
- * User can click the Detail button to get the restaurant informaion.
+ * User cna click the Edit button to edit the restaurant information.
+ * User can click the Detail button to get the restaurant information.
  * User can click the Delete button to delete the restaurant from the list.
+ * There's a Sort button on the front page.
  
 ## How to Use
  * Git clone
@@ -35,3 +36,4 @@
  * express-handlebars: 5.3.2
  * body-parser: 1.19.0
  * mongoose: 5.13.7
+ * method-override: 3.0.0

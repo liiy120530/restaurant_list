@@ -10,10 +10,13 @@ const restaurants = require('./modules/restaurants')
 
 //引入search
 const search = require('./modules/search')
+//引入sort
+const sort = require('./modules/sort')
 
 router.use('/', home)
 router.use('/restaurants', restaurants)
 router.use('/search', search)
+router.use('/sort', sort)
 
 // 匯出路由器
 module.exports = router

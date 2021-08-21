@@ -1,17 +1,33 @@
-<!-- search bar -->
-<div class="container search-bar">
-  <div class="search-bar-outer">
-    <div class="search-bar-inner">
-      <form action="/search">
-        <h4 class="mb-2">尋找餐廳：</h4>
-        <div class="input-group">
-          <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
-            value="{{keyword}}" aria-describedby="search-button">
-          <div class="input-group-append">
-            <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
-          </div>
+<div class="container">
+  <div class="row">
+    <!-- search bar -->
+    <div class="container search-bar col">
+      <div class="search-bar-outer">
+        <div class="search-bar-inner">
+          <form action="/search">
+            <h4 class="mb-2">尋找餐廳：</h4>
+            <div class="input-group">
+              <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類"
+                aria-label="Restaurant Name..." value="{{keyword}}" aria-describedby="search-button">
+              <div class="input-group-append">
+                <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
+    </div>
+    <div class="dropdown col d-flex flex-row-reverse">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        SORT
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="/sort/asc">A to Z</a>
+          <a class="dropdown-item" href="/sort/desc">Z to A</a>
+          <a class="dropdown-item" href="/sort/category">種類</a>
+          <a class="dropdown-item" href="/sort/location">地區</a>
+        </div>
     </div>
   </div>
 </div>

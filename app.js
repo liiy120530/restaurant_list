@@ -16,6 +16,9 @@ const methodOverride = require('method-override')
 //引用路由器
 const routes = require('./routes')
 
+//載入passport 設定檔
+const usePassport = require('./config/passport')
+
 //引用mongoose
 require('./config/mongoose')
 
@@ -38,6 +41,8 @@ app.use(express.static('public'))
 
 //設定每筆請求都會透過 methodOverride 進行前置處理
 app.use(methodOverride('_method'))
+
+usePassport(app)
 
 //將request導入路由器
 app.use(routes)

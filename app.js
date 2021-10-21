@@ -1,5 +1,6 @@
 //建立Express
 const express = require('express')
+const session = require('express-session')
 const app = express()
 const port = 3000
 
@@ -22,6 +23,12 @@ require('./config/mongoose')
 //設定樣板引擎
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
+
+app.use(session({
+  secret: 'ThisIsMySecret',
+  resave: false,
+  saveUninitialized: true
+}))
 
 // 用 app.use 規定每一筆請求都需要透過 body-parser 進行前置處理
 app.use(bodyParser.urlencoded({ extended: true }))

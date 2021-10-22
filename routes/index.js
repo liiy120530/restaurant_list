@@ -14,11 +14,13 @@ const sort = require('./modules/sort')
 //引入 users
 const users = require('./modules/users')
 
-router.use('/', home)
-router.use('/restaurants', restaurants)
+const {authenticator} = require('../middleware/auth')
+
+router.use('/restaurants', authenticator, restaurants)
 router.use('/search', search)
 router.use('/sort', sort)
 router.use('/users', users)
+router.use('/', authenticator, home)
 
 // 匯出路由器
 module.exports = router

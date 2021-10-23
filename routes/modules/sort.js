@@ -3,7 +3,8 @@ const router = express.Router()
 const Restaurant = require('../../models/restaurant')
 
 router.get('/asc', (req, res) => {
-  Restaurant.find()
+  const userId = req.user._id
+  Restaurant.find({userId})
     .lean()
     .sort({ name_en: 'asc' })
     .then(restaurants => res.render('index', { restaurants }))
@@ -11,7 +12,8 @@ router.get('/asc', (req, res) => {
 })
 
 router.get('/desc', (req, res) => {
-  Restaurant.find()
+  const userId = req.user._id
+  Restaurant.find({ userId })
     .lean()
     .sort({ name_en: 'desc' })
     .then(restaurants => res.render('index', { restaurants }))
@@ -19,7 +21,8 @@ router.get('/desc', (req, res) => {
 })
 
 router.get('/category', (req, res) => {
-  Restaurant.find()
+  const userId = req.user._id
+  Restaurant.find({ userId })
     .lean()
     .sort({ category: 'asc' })
     .then(restaurants => res.render('index', { restaurants }))
@@ -27,7 +30,8 @@ router.get('/category', (req, res) => {
 })
 
 router.get('/location', (req, res) => {
-  Restaurant.find()
+  const userId = req.user._id
+  Restaurant.find({ userId })
     .lean()
     .sort({ location: 'asc' })
     .then(restaurants => res.render('index', { restaurants }))

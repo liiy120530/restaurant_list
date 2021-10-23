@@ -4,9 +4,11 @@ const router = express.Router()
 const Restaurant = require('../../models/restaurant')
 
 router.get('/', (req, res) => {
+  const userId = req.user._id
   const keyword = req.query.keyword.trim().toLowerCase()
   const keywordRegex = new RegExp(keyword, 'i')
-  Restaurant.find({ $or: [{ category: { $regex: keywordRegex } }, { name: { $regex: keywordRegex } }] })
+  Restaurant.find({ userId })
+    .find({ $or: [{ category: { $regex: keywordRegex } }, { name: { $regex: keywordRegex } }] })
     .lean()
     .then(restaurants => {
       res.render('index', { restaurants, keyword })

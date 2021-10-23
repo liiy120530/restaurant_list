@@ -2,7 +2,6 @@
 const express = require('express')
 const session = require('express-session')
 const app = express()
-const port = 3000
 
 //建立express-handlebars
 const exphbs = require('express-handlebars')
@@ -19,6 +18,7 @@ const flash = require('connect-flash')
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
+const PORT = process.env.PORT
 
 //引用路由器
 const routes = require('./routes')
@@ -66,6 +66,6 @@ app.use((req, res, next) => {
 app.use(routes)
 
 // start and listen on the Express server
-app.listen(port, () => {
-  console.log(`Express is listening on localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`App is running on http://localhost:${PORT}`)
 })
